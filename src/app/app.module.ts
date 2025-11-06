@@ -1,0 +1,57 @@
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './components/shared/shared.module';
+import { AdminLayoutModule } from './components/logged-pages/admin-layout.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/logged-pages/home/home.component';
+import { registerLocaleData, CurrencyPipe } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
+import { faFilm, faFish } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+import { InterceptorModule } from './_services/interceptor.module';
+import { BackgroundModule } from './components/background/background.module';
+import { SearchModule } from './components/search/search.module';
+import { ResultsModule } from './components/results/results.module';
+import { ServicesComponent } from './components/services/services.component';
+import { ServicesModule } from './components/services/services.module';
+import { AboutComponent } from './components/about/about.component';
+import { AboutModule } from './components/about/about.module';
+
+registerLocaleData(localePT);
+
+@NgModule({
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    AdminLayoutModule,
+    HttpClientModule,
+    NgbModule,
+    RouterModule,
+    InterceptorModule,
+    BackgroundModule,
+    SearchModule,
+    ResultsModule,
+    ServicesModule,
+    AboutModule,
+  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }, CurrencyPipe],
+  bootstrap: [AppComponent],
+})
+export class AppModule {
+  constructor() {
+    library.add(faFilm, faFish);
+  }
+}

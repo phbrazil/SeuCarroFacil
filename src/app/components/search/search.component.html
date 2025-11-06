@@ -1,0 +1,59 @@
+<section class="hero-section">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Encontre seu carro <span class="theme-color">Perfeito</span></h1>
+
+    <div class="search-bar">
+      <select #make (change)="selectMaker(make)" name="make" id="make">
+        <option selected>Todos Fabricantes</option>
+        <option>Audi (14)</option>
+        <option>Bentley (4)</option>
+        <option>BMW (11)</option>
+        <option>Cadillac (13)</option>
+        <option>Chevrolet (7)</option>
+        <option>Ferrari (12)</option>
+        <option>Ford (5)</option>
+        <option>Mercedes-Benz (23)</option>
+        <option>Porsche (9)</option>
+      </select>
+      <!--p-select
+        [options]="makers"
+        [(ngModel)]="make"
+        optionLabel="name"
+        placeholder="Select a City"
+        class="w-full md:w-56"
+      ></p-select-->
+
+      <select #model (change)="selectModel(model)" disabled="true">
+        <option>Todos Modelos</option>
+      </select>
+
+      <div class="price-slider">
+        <label for="priceRange">Valor Máximo</label>
+        <input
+          type="range"
+          id="priceRange"
+          [(ngModel)]="maxPrice"
+          [min]="10000"
+          [max]="2000000"
+          [step]="5000"
+        />
+        <div *ngIf="maxPrice < 2000000; else todos_valores" id="priceValue">
+          R${{ maxPrice | number : "1.0-0" }}
+        </div>
+        <ng-template #todos_valores>
+          <div id="priceValue">Todos Valores</div>
+        </ng-template>
+      </div>
+
+      <!--p-button
+        icon="pi pi-search"
+        styleClass="p-button-rounded"
+        severity="info"
+        [disabled]="false"
+        (click)="onSearch()"
+      ></p-button-->
+    </div>
+  </div>
+</section>

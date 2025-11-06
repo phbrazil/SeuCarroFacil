@@ -1,0 +1,16 @@
+@use "src/styles" as *; // Import the global SCSS file
+
+/* Quem Somos */
+.quemsomos {
+  padding: 4rem 2rem;
+  color: white;
+
+  p {
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  strong {
+    color: $theme-color;
+  }
+}

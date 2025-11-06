@@ -1,0 +1,56 @@
+.background-strip {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  min-height: 100vh;
+
+  .background-images {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+
+    img {
+      opacity: 0.4; // make them slightly transparent
+      object-fit: cover;
+      animation: fade 20s infinite alternate; // example fade animation
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    /* dark overlay */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5); // darker = increase number (0.6–0.7)
+      pointer-events: none;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .background-content {
+    position: fixed;
+    overflow: auto;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // keep header top and footer bottom
+  }
+}

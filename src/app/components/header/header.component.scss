@@ -1,0 +1,97 @@
+@use "src/styles" as *; // importa variáveis globais
+
+.navbar {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding: 0.8rem 2rem;
+
+  /* 🔹 Header fixo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #1d222b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 10rem;
+    height: auto;
+  }
+
+  /* ---------- DESKTOP LINKS ---------- */
+  .nav-links {
+    ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+  }
+
+  /* ---------- BOTÃO MOBILE ---------- */
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+    background: none;
+    border: none;
+    z-index: 2000;
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    /* 🔹 começa escondido */
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #1d222b;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease-in-out;
+      z-index: 1500;
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+    }
+
+    /* 🔹 quando o botão é clicado */
+    .nav-links.active {
+      max-height: 300px;
+    }
+
+    /* 🔹 esconde os links em desktop */
+    .nav-links ul {
+      display: flex;
+    }
+  }
+}

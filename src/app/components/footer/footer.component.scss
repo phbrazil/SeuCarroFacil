@@ -1,0 +1,141 @@
+@use 'src/styles' as *; // Import the global SCSS file
+
+.footer {
+  background: #1d222b;
+  color: #f2f2f2;
+  padding: 3rem 2rem;
+  font-family: 'Poppins', sans-serif;
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .logo {
+        width: 10rem;
+        height: auto;
+      }
+
+      h2 {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      flex: 1;
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.6rem;
+
+          a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: $theme-color;
+            }
+          }
+        }
+      }
+
+      .about {
+        p {
+          font-size: 0.9rem;
+          color: #ccc;
+          line-height: 1.6;
+        }
+      }
+
+      .contact {
+        p {
+          margin: 0.4rem 0;
+          font-size: 0.9rem;
+        }
+
+        .phone {
+          font-weight: 700;
+          font-size: 1.2rem;
+
+          span {
+            color: $theme-color;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #2a2f38;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: #aaa;
+
+      a {
+        color:  $theme-color;
+        text-decoration: none;
+      }
+    }
+
+    .socials {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        color: $theme-color;
+        transition: background 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        i {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
