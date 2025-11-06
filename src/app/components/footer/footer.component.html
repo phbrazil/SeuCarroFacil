@@ -1,5 +1,5 @@
 <footer class="footer">
-  <div class="footer-container" >
+  <div class="footer-container">
     <div class="footer-logo">
       <img src="assets/img/logo.png" class="logo" />
     </div>
@@ -8,7 +8,9 @@
       <div class="footer-column">
         <ul>
           <li>
-            <a href="#assessoria-compra-completa"
+            <a
+              (click)="openModal('assessoria-compra-completa')"
+              href="#assessoria-compra-completa"
               >Assessoria Completa de Compra</a
             >
           </li>
@@ -73,3 +75,36 @@
     </div>
   </div>
 </footer>
+<div class="card flex justify-center">
+  <div class="card flex justify-center">
+    <p-dialog
+      header="Header"
+      [modal]="true"
+      [(visible)]="visible"
+      [style]="{ width: '50rem' }"
+      [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+      [maximizable]="true"
+    >
+      <h1><strong>ASSESSORIA COMPLETA NA COMPRA DE SEU VEÍCULO.</strong></h1>
+      <p>
+        DA ENTREVISTA PARA UM PERFIL AUTOMOTIVO ÀS CHAVES EM SUAS MÃOS, UM
+        SERVIÇO REALMENTE COMPLETO. VOCÊ NÃO PRECISA SE PREOCUPAR COM NADA.
+        Inicialmente, faremos uma rápida entrevista para traçarmos o que
+        chamamos de “Perfil Automotivo” do cliente. Analisaremos fatores como
+        valor a ser investido, uso do carro, valores pretendidos com
+        combustível, seguro, manutenção, etc. Em seguida, usaremos uma
+        metodologia para encontrar o modelo correto para seu perfil.
+        Apresentando alguns comparativos, constando os prós e contras de cada
+        veículo, opcionais, etc. Após a decisão, iremos atrás do automóvel ideal
+        para o cliente. Nessa etapa, procuraremos por um veículo na melhor
+        condição e preço possível, averiguando toda a procedência do veículo,
+        como avaliação de detalhes estéticos, documentação, mecânica, históricos
+        de leilão, sinistros, funilarias realizadas, etc. Após acharmos o
+        veículo ideal, auxiliaremos com o que for preciso. E acompanharemos
+        pessoalmente a entrega do mesmo. É importante ressaltar que nós não
+        interferimos no valor da compra: o valor negociado com o vendedor, será
+        o valor que você pagará, e nosso serviço será cobrado à parte.
+      </p>
+    </p-dialog>
+  </div>
+</div>

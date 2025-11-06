@@ -1,21 +1,17 @@
-<nav class="navbar bg-color">
-  <div class="navbar-container">
+<p-menubar [model]="items" class="bg-color">
+  <ng-template pTemplate="start">
     <div class="logo">
       <img src="assets/img/logo.png" alt="Logo" />
     </div>
+  </ng-template>
 
-    <button class="menu-toggle" (click)="isMenuOpen = !isMenuOpen">
-      <i class="pi" [ngClass]="isMenuOpen ? 'pi-times' : 'pi-bars'"></i>
-    </button>
-
-    <div class="nav-links" [class.active]="isMenuOpen">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#search">Buscar</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <ng-template pTemplate="end">
+    <button
+      pButton
+      label="Contato"
+      icon="pi pi-envelope"
+      class="p-button-text p-button-rounded p-button-sm"
+      (click)="scrollTo('contact')"
+    ></button>
+  </ng-template>
+</p-menubar>

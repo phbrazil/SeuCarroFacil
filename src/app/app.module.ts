@@ -21,15 +21,16 @@ import { InterceptorModule } from './_services/interceptor.module';
 import { BackgroundModule } from './components/background/background.module';
 import { SearchModule } from './components/search/search.module';
 import { ResultsModule } from './components/results/results.module';
-import { ServicesComponent } from './components/services/services.component';
 import { ServicesModule } from './components/services/services.module';
-import { AboutComponent } from './components/about/about.component';
 import { AboutModule } from './components/about/about.module';
+import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
+import { FooterModule } from './components/footer/footer.module';
 
 registerLocaleData(localePT);
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,6 +47,9 @@ registerLocaleData(localePT);
     ResultsModule,
     ServicesModule,
     AboutModule,
+    MenubarModule,
+    SidebarModule,
+    FooterModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }, CurrencyPipe],
   bootstrap: [AppComponent],

@@ -1,97 +1,63 @@
-@use "src/styles" as *; // importa variáveis globais
+@use "src/styles" as *; // Import the global SCSS file
 
-.navbar {
-  color: #fff;
-  font-family: "Poppins", sans-serif;
+:host ::ng-deep .p-menubar {
+  border: none;
   padding: 0.8rem 2rem;
-
-  /* 🔹 Header fixo */
+  font-family: "Poppins", sans-serif;
   position: fixed;
+  width: 98.9%;
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
-  background: #1d222b;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  background-color: $background-color;
+}
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+:host ::ng-deep .p-menubar .p-menuitem-link {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ffc107; // theme color
   }
+}
 
-  .logo img {
-    width: 10rem;
-    height: auto;
-  }
+.logo img {
+  width: 10rem;
+  height: auto;
+}
 
-  /* ---------- DESKTOP LINKS ---------- */
-  .nav-links {
-    ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+:host ::ng-deep {
+  .p-menuitem {
+    border: none !important;
+    color: white !important;
 
-      li a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 500;
-        transition: color 0.3s ease;
+    .p-menuitem-icon {
+      color: white !important;
+    }
 
-        &:hover {
-          color: $theme-color;
-        }
+    .p-menuitem-text {
+      color: white !important;
+    }
+
+    /* 🔹 cor de fundo ao passar o mouse */
+    &:hover {
+      background-color: $theme-color !important; // ou #f0c330 se preferir fixo
+      color: #000 !important;
+
+      .p-menuitem-icon,
+      .p-menuitem-text {
+        color: #000 !important;
       }
     }
   }
 
-  /* ---------- BOTÃO MOBILE ---------- */
-  .menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #fff;
-    background: none;
-    border: none;
-    z-index: 2000;
+  /* 🔹 estado ativo no modo mobile (menu aberto) */
+  .p-menubar-mobile-active {
+    background-color: $background-color !important;
   }
+}
 
-  /* ---------- MOBILE ---------- */
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-    }
-
-    /* 🔹 começa escondido */
-    .nav-links {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: #1d222b;
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.3s ease-in-out;
-      z-index: 1500;
-
-      ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 0;
-      }
-    }
-
-    /* 🔹 quando o botão é clicado */
-    .nav-links.active {
-      max-height: 300px;
-    }
-
-    /* 🔹 esconde os links em desktop */
-    .nav-links ul {
-      display: flex;
-    }
-  }
+:host ::ng-deep .p-menubar-mobile-active .p-menubar-root-list {
+  background: $background-color !important;
 }

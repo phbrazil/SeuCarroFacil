@@ -1,5 +1,13 @@
 @use 'src/styles' as *; // Import the global SCSS file
 
+p-dialog {
+
+  color: white;
+
+  .p-dialog-mask {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
 .footer {
   background: #1d222b;
   color: #f2f2f2;

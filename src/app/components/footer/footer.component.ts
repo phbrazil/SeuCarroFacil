@@ -25,6 +25,8 @@ export class FooterComponent implements OnInit {
 
   subscribed: boolean = false;
 
+  visible: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private subscribeService: SubscribeService
@@ -51,5 +53,10 @@ export class FooterComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  public openModal(modalId: string) {
+    console.log('openModal', modalId);
+    this.visible = true;
   }
 }
