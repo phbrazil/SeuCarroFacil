@@ -5,28 +5,20 @@
     <h1>Encontre seu carro <span class="theme-color">Perfeito</span></h1>
 
     <div class="search-bar">
-      <select #make (change)="selectMaker(make)" name="make" id="make">
+      <!-- Make selector -->
+      <select #make (change)="selectMaker($event)" name="make" id="make">
         <option selected>Todos Fabricantes</option>
-        <option>Audi (14)</option>
-        <option>Bentley (4)</option>
-        <option>BMW (11)</option>
-        <option>Cadillac (13)</option>
-        <option>Chevrolet (7)</option>
-        <option>Ferrari (12)</option>
-        <option>Ford (5)</option>
-        <option>Mercedes-Benz (23)</option>
-        <option>Porsche (9)</option>
+        <option *ngFor="let maker of makers">{{ maker.name }}</option>
       </select>
-      <!--p-select
-        [options]="makers"
-        [(ngModel)]="make"
-        optionLabel="name"
-        placeholder="Select a City"
-        class="w-full md:w-56"
-      ></p-select-->
 
-      <select #model (change)="selectModel(model)" disabled="true">
-        <option>Todos Modelos</option>
+      <!-- Model selector -->
+      <select
+        #model
+        (change)="selectModel($event)"
+        [disabled]="models.length === 0"
+      >
+        <option selected>Todos Modelos</option>
+        <option *ngFor="let car of models">{{ car.model }}</option>
       </select>
 
       <div class="price-slider">
