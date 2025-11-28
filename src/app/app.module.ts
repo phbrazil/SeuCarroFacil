@@ -51,6 +51,7 @@ registerLocaleData(localePT);
     SidebarModule,
     FooterModule,
   ],
+  exports: [],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }, CurrencyPipe],
   bootstrap: [AppComponent],
 })

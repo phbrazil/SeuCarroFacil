@@ -2,7 +2,16 @@
 
 p-dialog {
 
-  color: white;
+  color: black;
+
+  .p-dialog-header-icon {
+    height: 1rem;
+  }
+
+  .p-dialog {
+    background-color: white;
+    padding: 1rem;
+  }
 
   .p-dialog-mask {
     background-color: rgba(0, 0, 0, 0.7);

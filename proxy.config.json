@@ -1,5 +1,5 @@
 {
-   "/process_payment": {
+  "/process_payment": {
     "target": "http://localhost:8080/opportunity/payment/process_payment",
     "secure": false,
     "changeOrigin": true,
@@ -15,6 +15,14 @@
     "logLevel": "debug",
     "pathRewrite": {
       "^/subscribe_plan": ""
+    }
+  },
+  "/api": {
+    "target": "https://drop-api.ea.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
     }
   }
 }

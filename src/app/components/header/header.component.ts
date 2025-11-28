@@ -21,8 +21,8 @@ export class HeaderComponent implements OnInit {
         command: () => this.scrollTo('home'),
       },
       {
-        label: 'Buscar',
-        icon: 'pi pi-search',
+        label: 'Catálogo de Veículos',
+        icon: 'pi pi-car',
         command: () => this.scrollTo('search'),
       },
       {
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
         command: () => this.scrollTo('services'),
       },
       {
-        label: 'Sobre',
+        label: 'Quem Somos',
         icon: 'pi pi-info-circle',
         command: () => this.scrollTo('about'),
       },

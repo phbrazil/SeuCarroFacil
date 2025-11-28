@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -80,6 +83,10 @@ export class SearchComponent implements OnInit {
     },
   ];
 
+  private baseUrl = 'https://drop-api.ea.com/player';
+
+  constructor(private http: HttpClient) {}
+
   selectMaker(event: any) {
     const makerName = event.target.value;
     const maker = this.makers.find((m) => m.name === makerName);
@@ -91,8 +98,6 @@ export class SearchComponent implements OnInit {
     const model = event.target.value;
     console.log('Selected model:', model);
   }
-
-  constructor() {}
 
   ngOnInit(): void {}
 
