@@ -10,7 +10,12 @@ export class DetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.navigatetotop();
     console.log('Details component initialized');
+  }
+
+  public navigatetotop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 }
