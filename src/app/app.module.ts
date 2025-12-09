@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './components/shared/shared.module';
@@ -18,7 +17,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { InterceptorModule } from './_services/interceptor.module';
-import { BackgroundModule } from './components/background/background.module';
 import { SearchModule } from './components/search/search.module';
 import { ResultsModule } from './components/results/results.module';
 import { ServicesModule } from './components/services/services.module';
@@ -26,11 +24,12 @@ import { AboutModule } from './components/about/about.module';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
 import { FooterModule } from './components/footer/footer.module';
+import { DetailsComponent } from './components/vehicles/details/details.component';
 
 registerLocaleData(localePT);
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, DetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,7 +41,6 @@ registerLocaleData(localePT);
     NgbModule,
     RouterModule,
     InterceptorModule,
-    BackgroundModule,
     SearchModule,
     ResultsModule,
     ServicesModule,

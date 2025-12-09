@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/logged-pages/home/home.component';
 import { AuthGuard } from './_services/auth.guard';
-
-const adminModule = () =>
-  import('./components/logged-pages/admin-layout.module').then(
-    (x) => x.AdminLayoutModule
-  );
+import { DetailsComponent } from './components/vehicles/details/details.component';
 
 const routes: Routes = [
   {
@@ -15,13 +11,23 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: '',
-        loadChildren: adminModule,
+        path: 'admin',
+        loadChildren: () =>
+          import('./components/logged-pages/admin-layout.module').then(
+            (m) => m.AdminLayoutModule
+          ),
       },
     ],
   },
+  {
+    path: 'details',
+    component: DetailsComponent,
+  },
 
-  { path: '**', redirectTo: '' },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({

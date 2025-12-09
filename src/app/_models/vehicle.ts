@@ -1,4 +1,5 @@
 export interface Vehicle {
+  id: number;
   /** Marca do veículo, ex: "Chevrolet" */
   brand: string;
 

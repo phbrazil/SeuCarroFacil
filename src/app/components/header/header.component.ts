@@ -53,4 +53,9 @@ export class HeaderComponent implements OnInit {
     const element = document.querySelector(link);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   }
+
+  public goToHome() {
+    console.log('Navigating to home');
+    this.router.navigate(['/']);
+  }
 }

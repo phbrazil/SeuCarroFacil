@@ -1,12 +1,9 @@
-<app-background *ngIf="!user; else logged">
-  <app-header id="home"></app-header>
+<app-header id="home"></app-header>
+<ng-container *ngIf="isHomePage && !user">
   <app-services id="services"></app-services>
   <app-about id="about"></app-about>
   <app-search id="search"></app-search>
   <app-results id="results"></app-results>
-  <app-footer id="contact"></app-footer>
-</app-background>
-
-<ng-template #logged>
-  <router-outlet></router-outlet>
-</ng-template>
+</ng-container>
+<router-outlet></router-outlet>
+<app-footer id="contact"></app-footer>

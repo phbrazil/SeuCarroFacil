@@ -1,13 +1,4 @@
 <div class="background-strip">
-  <div class="background-images">
-    <img
-      *ngFor="let img of images"
-      [src]="img"
-      alt=""
-      [style.height]="getRandomHeight()"
-    />
-  </div>
-
   <div class="background-content">
     <ng-content></ng-content>
     <!-- 👈 allows inner components -->
