@@ -18,27 +18,39 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Home',
         icon: 'pi pi-home',
-        command: () => this.scrollTo('home'),
+        command: () => this.router.navigate(['/']),
       },
       {
         label: 'Catálogo de Veículos',
         icon: 'pi pi-car',
-        command: () => this.scrollTo('search'),
+        command: () =>
+          this.router
+            .navigate(['/'])
+            .then(() => setTimeout(() => this.scrollTo('search'), 50)),
       },
       {
         label: 'Serviços',
         icon: 'pi pi-briefcase',
-        command: () => this.scrollTo('services'),
+        command: () =>
+          this.router
+            .navigate(['/'])
+            .then(() => setTimeout(() => this.scrollTo('services'), 50)),
       },
       {
         label: 'Quem Somos',
         icon: 'pi pi-info-circle',
-        command: () => this.scrollTo('about'),
+        command: () =>
+          this.router
+            .navigate(['/'])
+            .then(() => setTimeout(() => this.scrollTo('about'), 50)),
       },
       {
         label: 'Contato',
         icon: 'pi pi-envelope',
-        command: () => this.scrollTo('contact'),
+        command: () =>
+          this.router
+            .navigate(['/'])
+            .then(() => setTimeout(() => this.scrollTo('contact'), 50)),
       },
     ];
   }
@@ -48,7 +60,7 @@ export class HeaderComponent implements OnInit {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   }
 
-   navigate(link: string) {
+  navigate(link: string) {
     this.sidebarVisible = false;
     const element = document.querySelector(link);
     if (element) element.scrollIntoView({ behavior: 'smooth' });

@@ -15,7 +15,13 @@ export class DetailsComponent implements OnInit {
   }
 
   public navigatetotop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const el = document.getElementById('vehicle-details');
+    if (el) {
+      console.log('Scrolling to vehicle-details element');
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
 }
