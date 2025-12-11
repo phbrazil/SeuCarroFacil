@@ -9,13 +9,10 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-
   vehicleId: number;
-  
+
   faWhatsapp = faWhatsapp as IconProp;
   message: string;
-    ;
-
   constructor(private readonly router: ActivatedRoute) {}
   images: string[] = [
     'assets/img/cars/camaro.JPG',
@@ -24,14 +21,20 @@ export class DetailsComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-
-    this.vehicleId = Number(this.router.snapshot.queryParamMap.get('vehicleId'));
+    this.vehicleId = Number(
+      this.router.snapshot.queryParamMap.get('vehicleId')
+    );
     this.message =
-      'text=Ol%C3%A1,%20acessei%20seu%20WhatsLink%20pelo%20site.%20Gostaria%20de%20saber%20mais%20sobre%20o%20Chevrolet%20Camaro. ID '+this.vehicleId;
-    this.navigatetotop();
+      'text=Ol%C3%A1,%20acessei%20seu%20WhatsLink%20pelo%20site.%20Gostaria%20de%20saber%20mais%20sobre%20o%20Chevrolet%20Camaro. ID ' +
+      this.vehicleId;
+
+    setTimeout(() => {
+      this.navigatetotop();
+    }, 300);
   }
 
   public navigatetotop(): void {
+    console.log('navigatetotop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
