@@ -11,16 +11,34 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.navigatetotop();
-    console.log('Details component initialized');
   }
 
-  public navigatetotop() {
+  public navigatetotop(): void {
+    // guard in case code runs on the server (Angular Universal)
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
     const el = document.getElementById('vehicle-details');
     if (el) {
       console.log('Scrolling to vehicle-details element');
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch {
+        // fallback if scrollIntoView with options is not supported
+        const top = el.getBoundingClientRect().top + window.pageYOffset;
+        try {
+          window.scrollTo({ top, behavior: 'smooth' });
+        } catch {
+          window.scrollTo(0, top);
+        }
+      }
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch {
+        window.scrollTo(0, 0);
+      }
     }
   }
 
