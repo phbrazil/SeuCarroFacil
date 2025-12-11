@@ -27,6 +27,9 @@ export class FooterComponent implements OnInit {
 
   visible: boolean = false;
 
+  message: string =
+    'text=Ol%C3%A1,%20acessei%20seu%20WhatsLink%20pelo%20site.%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os.';
+
   constructor(
     private fb: FormBuilder,
     private subscribeService: SubscribeService
